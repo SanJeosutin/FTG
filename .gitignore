@@ -1,5 +1,8 @@
-#ignore hidden folders
-./
+#always add .gitignore
+!/.gitignore
+
+#ignore hidden files / folders
+.*
 
 # Prerequisites
 *.d
