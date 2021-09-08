@@ -8,30 +8,18 @@ Project : Random Tree Generator
 using namespace std;
 
 Tree::Tree(){}
+Tree::Tree(Person aParent, Person aChild) : parent(aParent), children(aChild){
+
+}
+
 Tree::~Tree(){}
 
-void Tree::addParent(Person person){
-    parent.push_back(person);
-}
+void Tree::link(list<Person> aParent, vector<Person> aChild){
 
-void Tree::addChildren(Person person){
-    parent.push_back(person);
-}
-
-void Tree::create(){
-    generation.insert(pair<vector<Person>, vector<Person>>(parent, children));
 }
 
 void Tree::print(){
-    cout << "PARENT: ";
-    for(Person iter : parent) {
-        cout << &iter;
-    }
-    cout << " - CHILDREN: ";
-    for(Person iter : children) {
-        cout << &iter;
-    }
-    cout << endl;
+
 }
 
 ostream& operator<<(ostream& aOStream, const Person& p){

@@ -12,19 +12,23 @@ Project : Random Tree Generator
 #include <iterator>
 #include <map>
 #include <vector>
+#include <list>
 
 class Tree{
+    private:
+        Person person;
+    
     public:
         Tree();
+        Tree(Person aParent, Person aChild);
         ~Tree();
-        void addParent(Person aPerson);
-        void addChildren(Person aPerson);
-        void create();
+        
+        void link(std::list<Person> aParent, std::vector<Person> aChild);
         void print();
 
-        std::map<std::vector<Person>, std::vector<Person>> generation;
-        std::vector<Person> parent;
-        std::vector<Person> children;
+        std::map<std::list<Person>, std::vector<Person>> generation;
+        Person parent;
+        Person children;
 
         friend std::ostream& operator<<(std::ostream& aOStream, const Person& aPerson);
 };
