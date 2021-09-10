@@ -4,7 +4,7 @@ Creation: 8/09/2021
 Project : Random Tree Generator
 ***************************************/
 //*un-comment bellow to initialised the test ;)
-//#define PERSON_TEST
+#define PERSON_TEST
 
 #include <iostream>
 #include <iterator>
@@ -12,6 +12,7 @@ Project : Random Tree Generator
 #include <vector>
 
 #include "person.h"
+#include "tree.h"
 
 using namespace std;
 
@@ -25,6 +26,8 @@ int main(){
 
 #ifdef PERSON_TEST
 int main(){
+    cout << "*-*-*-PERSON CLASS TEST*-*-*-" <<endl;
+
     Person child1;
     child1.firstName = "Euginenormous";
     child1.lastName = "Black";
@@ -76,6 +79,34 @@ int main(){
     child2.getInfo();
     child3.getInfo();
 
+    cout << "*-*-*-END TEST*-*-*-" <<endl;
+    cout << "\n*-*-*-TREE CLASS TEST*-*-*-" <<endl;
+
+    Tree tree;
+
+    tree.addParent(parent1);
+    tree.addParent(parent2);
+    
+    cout << "List of PARENTS: " << endl;
+    for (auto itr = tree.parents.cbegin(); itr != tree.parents.cend(); itr++) {
+        cout << "\t-" << *itr << endl;
+    }
+    
+    tree.addChild(child1);
+    tree.addChild(child2);
+    tree.addChild(child3);
+
+    cout << "\nVector of CHILDREN: " << endl;
+    for (auto itr = tree.children.cbegin(); itr != tree.children.cend(); itr++) {
+        cout << "\t-" << *itr << endl;
+    }
+
+    cout << "\nLink family: " << endl;
+    tree.link(tree.parents, tree.children);
+
+    cout << "\nMap of GENERATION: " << endl;
+    tree.print();
+    cout << "*-*-*-END TEST*-*-*-" <<endl;
     return 0;
 }
 #endif

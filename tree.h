@@ -23,14 +23,16 @@ class Tree{
         Tree(Person aParent, Person aChild);
         ~Tree();
         
+        void addParent(Person aParent);
+        void addChild(Person aChild);
         void link(std::list<Person> aParent, std::vector<Person> aChild);
         void print();
 
         std::map<std::list<Person>, std::vector<Person>> generation;
         Person parent;
-        Person children;
-
-        friend std::ostream& operator<<(std::ostream& aOStream, const Person& aPerson);
+        std::list<Person> parents;
+        Person child;
+        std::vector<Person> children;
 };
 
 #endif
